@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Mujo Lab - Recipe Library</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+        }
+        .masonry {
+            column-gap: 1.5rem;
+            column-count: 1;
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .masonry {
+                column-count: 2;
+            }
+        }
+        @media (min-width: 1200px) {
+            .masonry {
+                column-count: 3;
+            }
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-gray-900">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur border-b border-stone-200 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-amber-600 rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">🍄</span>
+                    </div>
+                    <span class="text-xl font-bold text-gray-900">The Mujo Lab</span>
+                </a>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-amber-600 transition">Home</a>
+                    <a href="index.html#products" class="text-gray-700 hover:text-amber-600 transition">Products</a>
+                    <a href="recipes.html" class="text-amber-700 font-semibold">Recipes</a>
+                    <a href="blog.html" class="text-gray-700 hover:text-amber-600 transition">Blog</a>
+                    <a href="index.html#about" class="text-gray-700 hover:text-amber-600 transition">About</a>
+                    <a href="index.html#contact" class="text-gray-700 hover:text-amber-600 transition">Contact</a>
+                </div>
+
+                <a href="index.html#products" class="hidden md:inline-flex bg-amber-600 text-white px-5 py-2 rounded-lg hover:bg-amber-700 transition">Shop Now</a>
+
+                <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Open menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="index.html" class="block py-2 text-gray-700 hover:text-amber-600">Home</a>
+                <a href="index.html#products" class="block py-2 text-gray-700 hover:text-amber-600">Products</a>
+                <a href="recipes.html" class="block py-2 text-amber-700 font-semibold">Recipes</a>
+                <a href="blog.html" class="block py-2 text-gray-700 hover:text-amber-600">Blog</a>
+                <a href="index.html#about" class="block py-2 text-gray-700 hover:text-amber-600">About</a>
+                <a href="index.html#contact" class="block py-2 text-gray-700 hover:text-amber-600">Contact</a>
+                <a href="index.html#products" class="block w-full mt-4 text-center bg-amber-600 text-white px-6 py-2 rounded-lg hover:bg-amber-700 transition">Shop Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-gradient pt-32 pb-20 px-4 sm:px-6 lg:px-8 text-white">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div>
+                <p class="text-amber-300 font-semibold uppercase tracking-wide text-sm mb-3">The Mujo Lab Kitchen</p>
+                <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">Recipe Library for Dried Mushrooms</h1>
+                <p class="text-lg text-stone-200 mb-8">A dedicated page gives us freedom to publish quick meals, long-form chef recipes, pairing notes, and seasonal specials as our menu grows.</p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-sm">Shiitake</span>
+                    <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-sm">Oyster</span>
+                    <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-sm">Morel</span>
+                    <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-sm">Porcini</span>
+                </div>
+            </div>
+            <div class="rounded-3xl bg-white/10 border border-white/20 p-8 backdrop-blur-sm">
+                <h2 class="text-2xl font-bold mb-4">How to use dried mushrooms</h2>
+                <ol class="space-y-3 text-stone-200 list-decimal list-inside">
+                    <li>Soak in warm water for $15$–$30$ minutes.</li>
+                    <li>Save soaking liquid for broth and sauces.</li>
+                    <li>Slice and cook just like fresh mushrooms.</li>
+                    <li>Season at the end to keep umami balanced.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter chips -->
+    <section class="py-10 px-4 sm:px-6 lg:px-8 bg-white border-b border-stone-200">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-wrap gap-3">
+                <button class="px-4 py-2 rounded-full bg-amber-600 text-white text-sm font-semibold">All Recipes</button>
+                <button class="px-4 py-2 rounded-full bg-amber-100 text-amber-800 text-sm font-semibold hover:bg-amber-200 transition">Quick (Under 30 min)</button>
+                <button class="px-4 py-2 rounded-full bg-amber-100 text-amber-800 text-sm font-semibold hover:bg-amber-200 transition">Soups & Broths</button>
+                <button class="px-4 py-2 rounded-full bg-amber-100 text-amber-800 text-sm font-semibold hover:bg-amber-200 transition">Pasta & Grains</button>
+                <button class="px-4 py-2 rounded-full bg-amber-100 text-amber-800 text-sm font-semibold hover:bg-amber-200 transition">Chef Specials</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Masonry Recipes -->
+    <main class="py-14 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto masonry">
+            <article class="masonry-item rounded-2xl bg-white p-6 shadow-lg border border-stone-200">
+                <p class="text-xs font-semibold uppercase tracking-wide text-amber-700 mb-2">Shiitake · Broth</p>
+                <h3 class="text-2xl font-bold mb-3">Dried Shiitake Miso Broth</h3>
+                <p class="text-gray-600 mb-4">Rehydrate shiitake and simmer with ginger, garlic, and scallions. Finish with white miso for a deep, comforting broth.</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-1 mb-4">
+                    <li>Prep: 10 min</li>
+                    <li>Cook: 15 min</li>
+                    <li>Yield: 2 bowls</li>
+                </ul>
+                <a href="#" class="text-amber-700 font-semibold hover:text-amber-800">Read full method →</a>
+            </article>
+
+            <article class="masonry-item rounded-2xl bg-gradient-to-br from-stone-900 to-stone-800 text-white p-6 shadow-xl">
+                <p class="text-xs font-semibold uppercase tracking-wide text-amber-300 mb-2">Morel · Featured</p>
+                <h3 class="text-2xl font-bold mb-3">Morel Truffle Risotto</h3>
+                <p class="text-stone-200 mb-4">A slow-cooked arborio risotto with soaked morels, butter, parmesan, and a touch of truffle oil for an elevated finish.</p>
+                <h4 class="font-semibold mb-2">Chef notes</h4>
+                <p class="text-stone-300 mb-4">Add stock gradually and stir often. Keep the final texture fluid rather than dry for restaurant-style plating.</p>
+                <a href="#" class="text-amber-300 font-semibold hover:text-amber-200">Read full method →</a>
+            </article>
+
+            <article class="masonry-item rounded-2xl bg-white p-6 shadow-lg border border-stone-200">
+                <p class="text-xs font-semibold uppercase tracking-wide text-amber-700 mb-2">Oyster · Pasta</p>
+                <h3 class="text-2xl font-bold mb-3">Creamy Oyster Mushroom Pasta</h3>
+                <p class="text-gray-600 mb-4">Dried oyster mushrooms, thyme, shallot, and parmesan come together in a silky weeknight pasta.</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-1 mb-4">
+                    <li>Prep: 15 min</li>
+                    <li>Cook: 20 min</li>
+                </ul>
+                <a href="#" class="text-amber-700 font-semibold hover:text-amber-800">Read full method →</a>
+            </article>
+
+            <article class="masonry-item rounded-2xl bg-amber-50 p-6 shadow-md border border-amber-100">
+                <p class="text-xs font-semibold uppercase tracking-wide text-amber-700 mb-2">Porcini · Sauce</p>
+                <h3 class="text-2xl font-bold mb-3">Porcini Pan Sauce Steak</h3>
+                <p class="text-gray-700 mb-4">Blend soaked porcini and whisk into pan drippings with stock and cream for an intensely savory finishing sauce.</p>
+                <h4 class="font-semibold text-gray-900 mb-2">Best pairing</h4>
+                <p class="text-gray-700 mb-4">Ribeye, mashed potato, and charred greens.</p>
+                <a href="#" class="text-amber-700 font-semibold hover:text-amber-800">Read full method →</a>
+            </article>
+
+            <article class="masonry-item rounded-2xl bg-white p-6 shadow-lg border border-stone-200">
+                <p class="text-xs font-semibold uppercase tracking-wide text-amber-700 mb-2">Blend · Ramen</p>
+                <h3 class="text-2xl font-bold mb-3">Umami Ramen Concentrate</h3>
+                <p class="text-gray-600 mb-4">Use equal parts dried shiitake and porcini to build a concentrated ramen base for noodle bowls and hotpot.</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-1 mb-4">
+                    <li>Make ahead up to 5 days</li>
+                    <li>Great for soups, gravies, and glaze reduction</li>
+                    <li>Freezer friendly</li>
+                </ul>
+                <a href="#" class="text-amber-700 font-semibold hover:text-amber-800">Read full method →</a>
+            </article>
+
+            <article class="masonry-item rounded-2xl bg-emerald-900 text-white p-6 shadow-xl">
+                <p class="text-xs font-semibold uppercase tracking-wide text-emerald-200 mb-2">Oyster · Weeknight</p>
+                <h3 class="text-2xl font-bold mb-3">Oyster Fried Rice with Garlic Oil</h3>
+                <p class="text-emerald-100 mb-4">Quick, smoky, and savory. Rehydrated oyster mushrooms add chew and depth to classic fried rice in under $25$ minutes.</p>
+                <a href="#" class="text-emerald-200 font-semibold hover:text-white">Read full method →</a>
+            </article>
+        </div>
+    </main>
+
+    <!-- Extra content blocks -->
+    <section class="pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2 rounded-2xl bg-white p-8 border border-stone-200 shadow-sm">
+                <h3 class="text-2xl font-bold mb-3">Planning more recipe content</h3>
+                <p class="text-gray-600 mb-5">This page is intentionally flexible. You can add long-form recipe stories, short quick cards, seasonal collections, or chef interviews without breaking layout balance.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                    <div class="bg-stone-100 rounded-lg p-4">Add sections for prep videos</div>
+                    <div class="bg-stone-100 rounded-lg p-4">Add sections for ingredient substitutions</div>
+                    <div class="bg-stone-100 rounded-lg p-4">Add sections for nutrition facts</div>
+                    <div class="bg-stone-100 rounded-lg p-4">Add sections for seasonal collections</div>
+                </div>
+            </div>
+            <aside class="rounded-2xl bg-amber-600 text-white p-8 shadow-lg">
+                <h3 class="text-2xl font-bold mb-3">Want weekly recipes?</h3>
+                <p class="text-amber-50 mb-5">Get one new dried-mushroom recipe every week from The Mujo Lab kitchen team.</p>
+                <input type="email" placeholder="Enter your email" class="w-full px-4 py-3 rounded-lg text-gray-900 mb-3 focus:outline-none">
+                <button class="w-full bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition">Subscribe</button>
+            </aside>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-300 py-10 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between gap-4 text-sm">
+            <p>© 2026 The Mujo Lab. All rights reserved.</p>
+            <div class="flex gap-5">
+                <a href="index.html" class="hover:text-amber-400 transition">Home</a>
+                <a href="index.html#products" class="hover:text-amber-400 transition">Products</a>
+                <a href="recipes.html" class="hover:text-amber-400 transition">Recipes</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
